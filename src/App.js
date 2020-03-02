@@ -10,11 +10,13 @@ import './App.css';
 const App = () => {
   return (
     <TrackerState>
-      <div className='tracker-body'>
-        <Header />
-        <ExpenseIncome />
-        <History />
-        <AddNew />
+      <div className='wrapper'>
+        <div className='tracker-body'>
+          <Header />
+          <ExpenseIncome />
+          <History />
+          <AddNew />
+        </div>
       </div>
     </TrackerState>
   );

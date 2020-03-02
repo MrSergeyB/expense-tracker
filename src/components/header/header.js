@@ -8,12 +8,13 @@ const Header = () => {
   const {transactions} = trackerContext;
   return (
     <Fragment>
-      <div>
+      <div className='header'>
         <h2 className='tracker-header'>Expense tracker</h2>
-      </div>
-      <div>
-        <h4>Your balance</h4>
-        <h1>${transactions.balance}</h1>
+
+        <div>
+          <h4 className='balance'>Your balance</h4>
+          <h1 className='balance-amount'>${transactions.balance}</h1>
+        </div>
       </div>
     </Fragment>
   );
