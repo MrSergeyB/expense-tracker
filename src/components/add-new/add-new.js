@@ -6,13 +6,18 @@ const AddNew = () => {
   const [amount, setAmount] = useState();
   const [explanation, setExplanation] = useState();
   const trackerContext = useContext(TrackerContext);
-  const {addTransaction} = trackerContext;
+  const {addTransaction, clearAll} = trackerContext;
 
   const handleSubmit = e => {
     e.preventDefault();
     addTransaction(amount, explanation);
     setAmount('');
     setExplanation('');
+  };
+
+  const handleClearAll = e => {
+    e.preventDefault();
+    clearAll();
   };
 
   return (
@@ -40,6 +45,14 @@ const AddNew = () => {
         ></input>
         <button type='submit' value='Add' className='add-btn'>
           Add transaction
+        </button>
+        <button
+          type='submit'
+          onClick={handleClearAll}
+          value='Add'
+          className='clear-btn'
+        >
+          Clear all
         </button>
       </form>
     </div>

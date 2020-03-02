@@ -3,6 +3,13 @@ import TrackerContext from './tracker-context';
 import {v1 as uuidv1} from 'uuid';
 
 const TrackerState = props => {
+  const inititalState = JSON.parse(localStorage.getItem('transactions')) || {
+    balance: 0,
+    income: 0,
+    expenses: 0,
+    list: []
+  };
+
   let dateObj = new Date();
   let month = dateObj.getUTCMonth() + 1; //months from 1-12
   let day = dateObj.getUTCDate();
@@ -10,14 +17,11 @@ const TrackerState = props => {
 
   let newdate = year + '.' + month + '.' + day;
 
-  const [transactions, setTransaction] = useState({
-    balance: 0,
-    income: 0,
-    expenses: 0,
-    list: []
-  });
+  const [transactions, setTransaction] = useState(inititalState);
 
-  useEffect(() => {});
+  useEffect(() => {
+    localStorage.setItem('transactions', JSON.stringify(transactions));
+  }, [transactions]);
 
   const addTransaction = (am, expl) => {
     let amount = +am;
@@ -79,12 +83,24 @@ const TrackerState = props => {
     }
   };
 
+  const clearAll = () => {
+    localStorage.clear();
+
+    setTransaction({
+      balance: 0,
+      income: 0,
+      expenses: 0,
+      list: []
+    });
+  };
+
   return (
     <TrackerContext.Provider
       value={{
         transactions,
         addTransaction,
-        removeTransaction
+        removeTransaction,
+        clearAll
       }}
     >
       {props.children}

@@ -1,7 +1,14 @@
+.history-div {
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: 200px;
+}
 .list {
   list-style: none;
   padding: 0;
-  margin-bottom: 40px;
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: 300px;
 }
 
 .list li {

@@ -12,6 +12,20 @@
   color: #ffffff;
 }
 
+.clear-btn {
+  display: block;
+  margin: 0.5em auto;
+  padding: 0.5em;
+  width: 20em;
+  background-color: #ed0c0c;
+  border: 0;
+  font-size: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
 .input {
   padding: 0.3em;
   width: 20em;
@@ -27,5 +41,13 @@
 }
 
 .add-btn:focus {
+  outline: 0;
+}
+
+.clear-btn:hover {
+  background-color: #a40d0d;
+}
+
+.clear-btn:focus {
   outline: 0;
 }
