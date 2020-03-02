@@ -1,0 +1,31 @@
+.add-btn {
+  display: block;
+  margin: 0.5em auto;
+  padding: 0.5em;
+  width: 20em;
+  background-color: #feb062;
+  border: 0;
+  font-size: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.input {
+  padding: 0.3em;
+  width: 20em;
+  display: block;
+  margin: 5px auto;
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  font-size: 1em;
+}
+
+.add-btn:hover {
+  background-color: #e6984a;
+}
+
+.add-btn:focus {
+  outline: 0;
+}
