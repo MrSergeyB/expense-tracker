@@ -4,15 +4,21 @@ import './add-new.css';
 
 const AddNew = () => {
   const [amount, setAmount] = useState();
-  const [explanation, setExplanation] = useState();
+  const [explanation, setExplanation] = useState('');
+  const [alert, setAlert] = useState();
   const trackerContext = useContext(TrackerContext);
   const {addTransaction, clearAll} = trackerContext;
 
   const handleSubmit = e => {
     e.preventDefault();
-    addTransaction(amount, explanation);
-    setAmount('');
-    setExplanation('');
+    if (explanation.trim() === '' || +amount === 0) {
+      setAlert(' Please write explanation. Amount should not be 0');
+    } else {
+      addTransaction(amount, explanation);
+      setAmount('');
+      setExplanation('');
+      setAlert('');
+    }
   };
 
   const handleClearAll = e => {
@@ -24,6 +30,7 @@ const AddNew = () => {
     <div className='inpu-div'>
       <h3>Add new transaction</h3>
       <form onSubmit={handleSubmit} id='myfrom'>
+        <small className='alert'>{alert}</small>
         <label htmlFor='explanation'>Explanation </label>
         <input
           value={explanation}

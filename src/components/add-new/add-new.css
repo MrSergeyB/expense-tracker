@@ -36,6 +36,10 @@
   font-size: 1em;
 }
 
+.alert {
+  color: red;
+  display: block;
+}
 .add-btn:hover {
   background-color: #e6984a;
 }
@@ -50,4 +54,8 @@
 
 .clear-btn:focus {
   outline: 0;
+}
+
+.showError {
+  display: none;
 }
